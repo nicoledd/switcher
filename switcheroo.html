@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Switcheroo</title>
+    <link rel="stylesheet" type="text/css" href="style.css" /> 
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <a style="display:block" href='../index.html'>
+        <div class="headerText" style="line-height: 1px;">
+            <h1 style="font-weight: lighter; font-size:60px; font-family: 'Monaco', monospace;"><center>nicoledd<center></h1>
+            <h3 style="font-weight: lighter; font-family: 'Andale Mono', monospace;"><center>small website under construction<center></h3>
+        </div>
+    </a>
+
+    <div style="width: 100%; display: inline-block;">
+        <div style="width: 50%; height: 100px; float: left;"> 
+            <h1 style="font-weight: lighter; font-size:60px; font-family: 'Monaco', monospace;"><center id="black-score">2</center></h1>
+            <h2 style="font-weight: lighter; font-family: 'Andale Mono', monospace; "><center>Black Score</center></h2>
+        </div>
+        <div style="margin-left: 50%; height: 100px;">
+            <h1 style="font-weight: lighter; font-size:60px; font-family: 'Monaco', monospace;"><center id="red-score">2</center></h1>
+            <h2 style="font-weight: lighter; font-family: 'Andale Mono', monospace; "><center>Red Score</center></h2>
+        </div>
+    </div>
+
+    <div>
+        <h2 style="font-weight: lighter; font-family: 'Andale Mono', monospace;"><center id='turn-text'>It is your turn! Go ahead!</center></h2>
+    </div>
+
+    <div class="game-board" id="gameboard">
+        <script>
+            for (let i=0; i<64; i++){
+                const b = document.createElement("button");
+                b.setAttribute("id", i.toString());
+                b.setAttribute("class","buttonbox");
+                b.setAttribute("onmouseover","hoverOn(" + i.toString() + ")")
+                b.setAttribute("onmouseleave","hoverOff(" + i.toString() + ")")
+                b.setAttribute("onclick","move(" + i.toString() + ")")
+                document.getElementById("gameboard").appendChild(b);
+            }
+            const a = document.createElement("span");
+            a.setAttribute("class","black-piece");
+            document.getElementById("0").appendChild(a);
+            const b = document.createElement("span");
+            b.setAttribute("class","black-piece");
+            let m = 64-8;
+            document.getElementById(m.toString()).appendChild(b);
+
+            const c = document.createElement("span");
+            c.setAttribute("class","red-piece");
+            document.getElementById("63").appendChild(c);
+            const d = document.createElement("span");
+            d.setAttribute("class","red-piece");
+            document.getElementById("7").appendChild(d);
+        </script>
+    </div>
+
+    <script src="switcheroo.js"></script>
+</body>
+
+
+</html>
